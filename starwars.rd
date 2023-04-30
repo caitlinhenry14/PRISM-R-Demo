@@ -32,3 +32,11 @@ unique(starwars$hair_color)
 starwars %>% select(name, height, ends_with("color")) %>% filter(hair_color %in% c("blond", "brown") & height < 180)
 
 # dealing with missing data
+mean(starwars$height)
+mean(starwars$height, na.rm = TRUE)
+starwars %>% select(name, gender, hair_color, height)
+starwars %>% select(name, gender, hair_color, height) %>% na.omit()
+
+# make a new df out of this
+newstarwars = starwars %>% select(name, gender, hair_color, height) %>% na.omit()
+view(newstarwars)
