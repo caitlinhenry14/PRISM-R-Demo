@@ -21,3 +21,14 @@ starwars$gender <- factor((starwars$gender), levels = c("masculine", "feminine")
 levels(starwars$gender)
 
 # select variables
+names(starwars)
+starwars %>% select(name, height, ends_with("color")) %>% names()
+# or we can remove %>% names, then we can just see the dataframe
+starwars %>% select(name, height, ends_with("color"))
+
+# filtering data
+# let's filter hair color... we should start by seeing what we have
+unique(starwars$hair_color)
+starwars %>% select(name, height, ends_with("color")) %>% filter(hair_color %in% c("blond", "brown") & height < 180)
+
+# dealing with missing data
